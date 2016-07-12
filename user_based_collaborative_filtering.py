@@ -92,11 +92,11 @@ def recommend(R, S, user, k, nb_to_recommend):
 # ------ MAKING THE RECOMMENDATIONS -----
 # The rating matrix R.
 # We use nan to specify a missing value.
-R = np.mat([[7, 6, 7, 4, 5, 4],
-            [6, 7, np.nan, 4, 3, 4],
-            [np.nan, 3, 3, 1, 1, np.nan],
-            [1, 2, 2, 3, 3, 4],
-            [1, np.nan, 1, 2, 3, 3]])
+R = np.mat([[1, np.nan, 1, 3, 4, 4],
+            [1, 3, 3, 4, 5, 6],
+            [np.nan, 4, 4, 1, 1, np.nan],
+            [8, 10, np.nan, 6, 4, 6],
+            [10, 8, 10, 6, 7, 6]])
 
 USER_TO_RECOMMEND = 2
 NB_RECOMMENDATIONS = 2
@@ -115,7 +115,7 @@ specified = [[i[1]
 # S is the similarity matrix. S[i, j] is the similarity value between users
 # i and j.
 S = np.array([[users_similarity(R, specified, u, v)
-               for v in range(nb_users)] for u in range(nb_users)])
+             for v in range(nb_users)] for u in range(nb_users)])
 
 # R_centered contains the mean centered ratings for each user.
 R_centered = R - mean[:, np.newaxis]
