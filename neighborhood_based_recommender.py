@@ -1,8 +1,19 @@
 import numpy as np
 from scipy.spatial.distance import cdist
 
+__author__ = "threynaud"
+
+# TODO: Handle the long tail phenomenon by replacing cdist.
+
 
 class Recommender(object):
+    """
+    Recommender system object.
+    Initialize it with a ratings matrix (with numerical values) and
+    use the 'recommend' method to provide a recommendation for a given user.
+    WARNING: This code in its current version does not adress the long tail
+    phenomenon!
+    """
     def __init__(self, R):
         """
         R: ratings matrix. list of lists or np.mat
